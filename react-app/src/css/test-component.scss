@@ -1,7 +1,8 @@
-.test-component :global(.test-component) {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: nowrap;
+.test{
+  :local(.testA){
+    background-color: var(--color-b);
+  }
+  :global(.testB){
+    background-color: var(--color-b);
+  }
 }
