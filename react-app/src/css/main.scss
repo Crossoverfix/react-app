@@ -2,47 +2,27 @@
 @use './var2';
 @use './local';
 @layer test, primereact, primereact1;
-.app-body{
-  &__container{
+.app{
+  &__wrapp{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     flex-wrap: nowrap;
   }
-  &__colors{
-    width: 50px;
-    height: 50px;
-    margin: 5px;
-    background-color: var(--color-a);
-    &.color{
-      &-1{
-        background-color: var(--color-a);
-      }
-      &-2{
-        background-color: var(--color-b);
-      }
-      &-3{
-        background-color: var(--color-c);
-      }
-      &-4{
-        background-color: var(--color-d);
-      }
-    }
+  &__header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
   }
-}
-html[data-layer="layer1"]{
-  @layer layer1, layer2;
-}
-html[data-layer="layer2"]{
-  @layer layer2, layer1;
-}
-@layer layer1 {
-  .testBtn{
-    background-color:var(--color-b);
-  }
-}
-@layer layer2 {
-  .testBtn{
-    background-color: var(--color-a);
+  &__body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
   }
 }
 

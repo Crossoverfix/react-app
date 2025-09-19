@@ -1,11 +1,41 @@
 import './App.css';
 import {Button} from "primereact/button";
 import "primereact/resources/themes/lara-light-cyan/theme.css";
-import testCss from './css/test-component.scss';
 import './css/main.scss'
 import './css/local.scss';
+import {useEffect, useState} from "react";
+import TableWrapper from "./component/table/tableWrapp";
 
 function App() {
+    const [products, setProducts] = useState([]);
+    const content = [
+        {id: '001', name: 'admin', description:'test', comment: 'тест', btn: true},
+        {id: '002', name: 'admin', description:'test', comment: 'тест', btn: true},
+        {id: '003', name: 'admin', description:'test', comment: 'тест', btn: false},
+        {id: '004', name: 'admin', description:'test', comment: 'тест', btn: true},
+        {id: '005', name: 'admin', description:'test', comment: 'тест', btn: false},
+        {id: '006', name: 'admin', description:'test', comment: 'тест', btn: true},
+        {id: '007', name: 'admin', description:'test', comment: 'тест', btn: true},
+        {id: '008', name: 'admin', description:'test', comment: 'тест', btn: false},
+        {id: '009', name: 'admin', description:'test', comment: 'тест', btn: true},
+        {id: '010', name: 'admin', description:'test', comment: 'тест', btn: false},
+        {id: '011', name: 'admin', description:'test', comment: 'тест', btn: true},
+        {id: '012', name: 'admin', description:'test', comment: 'тест', btn: true},
+        {id: '013', name: 'admin', description:'test', comment: 'тест', btn: false},
+        {id: '014', name: 'admin', description:'test', comment: 'тест', btn: true},
+        {id: '015', name: 'admin', description:'test', comment: 'тест', btn: false},
+        {id: '016', name: 'admin', description:'test', comment: 'тест', btn: true},
+        {id: '017', name: 'admin', description:'test', comment: 'тест', btn: true},
+        {id: '018', name: 'admin', description:'test', comment: 'тест', btn: false},
+        {id: '019', name: 'admin', description:'test', comment: 'тест', btn: true},
+        {id: '020', name: 'admin', description:'test', comment: 'тест', btn: false},
+
+    ];
+
+    useEffect(() => {
+        setProducts(content);
+    }, []);
+
     const toggleTheme = () => {
         const currentTheme = document.documentElement.getAttribute('data-theme');
         if (currentTheme === 'dark') {
@@ -14,40 +44,19 @@ function App() {
             document.documentElement.setAttribute('data-theme', 'dark');
         }
     };
-    const toggleLayer = () => {
-        const currentLayer = document.documentElement.getAttribute('data-layer');
-        if (currentLayer === 'layer1') {
-            document.documentElement.setAttribute('data-layer', 'layer2');
-        } else {
-            document.documentElement.setAttribute('data-layer', 'layer1');
-        }
-    };
 
-  return (
-    <div className="App var">
-        <div className="app-wrapp">
-            <div className="app-header">
-                <Button className="testBtn1" onClick={toggleTheme}>Theme</Button>
-                <Button className="testBtn" onClick={toggleLayer}>Layer</Button>
-            </div>
-            <div className="app-body__container">
-                <div className="app-body__colors color-1"></div>
-                <div className="app-body__colors color-2"></div>
-                <div className="app-body__colors color-3"></div>
-                <div className="app-body__colors color-4"></div>
-            </div>
-            <div className={testCss.testA}>
-                <div className={testCss}></div>
-                <div className="test-component">
-                    <div className="app-body__colors color-1"></div>
-                    <div className="app-body__colors color-2 testA"></div>
-                    <div className="app-body__colors color-3 testB"></div>
-                    <div className="app-body__colors color-4"></div>
+    return (
+        <div className="App var">
+            <div className="app__wrapp">
+                <div className="app__header">
+                    <Button className="testBtn1" onClick={toggleTheme}>Theme</Button>
+                </div>
+                <div className="app__body">
+                    <TableWrapper title="test" products={products}></TableWrapper>
                 </div>
             </div>
         </div>
-    </div>
-  );
+    );
 }
 
 export default App;
